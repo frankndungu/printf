@@ -2,10 +2,7 @@
 
 /**
  * get_flags - Calculates active flags
-<<<<<<< HEAD
-=======
  * Frank and Kay
->>>>>>> 7fa0fc1307e3a9bfdc74f0111961a0ede3fa3b56
  * @format: Formatted string in which to print the arguments
  * @i: take a parameter.
  * Return: Flags:
