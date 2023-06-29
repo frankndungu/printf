@@ -6,21 +6,11 @@
  *
  * Return: 1 if c is printable, 0 otherwise
  */
-size_t print_list(const list_t *h)
+int _pow_recursion(int x, int y)
 {
-	size_t nodes = 0;
-
-	while (h)
-	{
-	if (h->str == NULL)
-	printf("[0] (nil)\n");
-
-	else
-	printf("[%d] %s\n", h->len, h->str);
-
-	nodes++;
-	h = h->next;
-	}
-
-	return (nodes);
+	if (y < 0)
+	return (-1);
+	if (y == 0)
+	return (1);
+	return (x * _pow_recursion(x, y - 1));
 }
