@@ -7,20 +7,16 @@
  *
  * Return: Precision.
  */
-int get_size(const char *format, int *i)
+int int_index(int *array, int size, int (*cmp)(int))
 {
-	int curr_i = *i + 1;
-	int size = 0;
+	int i;
 
-	if (format[curr_i] == 'l')
-		size = S_LONG;
-	else if (format[curr_i] == 'h')
-		size = S_SHORT;
-
-	if (size == 0)
-		*i = curr_i - 1;
-	else
-		*i = curr_i;
-
-	return (size);
+	if (array == NULL || size <= 0 || cmp == NULL)
+		return (-1);
+	for (i = 0; i < size; i++)
+	{
+		if (cmp(array[i]))
+			return (i);
+	}
+	return (-1);
 }

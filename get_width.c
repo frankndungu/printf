@@ -8,29 +8,17 @@
  *
  * Return: width.
  */
-int get_width(const char *format, int *i, va_list list)
+int sum_them_all(const unsigned int n, ...)
 {
-	int curr_i;
-	int width = 0;
+	va_list ap;
+	unsigned int i, sum = 0;
 
-	for (curr_i = *i + 1; format[curr_i] != '\0'; curr_i++)
-	{
-		if (is_digit(format[curr_i]))
-		{
-			width *= 10;
-			width += format[curr_i] - '0';
-		}
-		else if (format[curr_i] == '*')
-		{
-			curr_i++;
-			width = va_arg(list, int);
-			break;
-		}
-		else
-			break;
-	}
+	va_start(ap, n);
 
-	*i = curr_i - 1;
+	for (i = 0; i < n; i++)
+		sum += va_arg(ap, int);
 
-	return (width);
+	va_end(ap);
+
+	return (sum);
 }
